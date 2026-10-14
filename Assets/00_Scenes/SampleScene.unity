@@ -866,6 +866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChestController
   unlocked: 0
   animator: {fileID: 0}
+  puzzleCanvas: {fileID: 1479697944}
 --- !u!65 &605209616
 BoxCollider:
   m_ObjectHideFlags: 0
