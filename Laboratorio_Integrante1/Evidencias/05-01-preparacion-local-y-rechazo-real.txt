@@ -1,0 +1,87 @@
+05-01-preparacion-local-y-rechazo-real
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+SIMULACION LOCAL: dos copias operadas automaticamente. No son acciones de dos integrantes ni un rechazo de GitHub.
+$ git init --bare --initial-branch=Dev C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+Initialized empty Git repository in C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev/.git/laboratorio-integrante1/caso05/remoto.git/
+Salida: 0
+
+$ git clone --no-hardlinks --branch Dev C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\copia-A
+Cloning into 'C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\copia-A'...
+done.
+Salida: 0
+
+$ git config user.name kevinIllanes
+(sin salida)
+Salida: 0
+
+$ git config user.email snow.illanes@gmail.com
+(sin salida)
+Salida: 0
+
+$ git config core.autocrlf true
+(sin salida)
+Salida: 0
+
+$ git remote set-url origin C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+(sin salida)
+Salida: 0
+
+$ git push -u origin Dev
+branch 'Dev' set up to track 'origin/Dev'.
+To C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+ * [new branch]      Dev -> Dev
+Salida: 0
+
+$ git clone --no-hardlinks --branch Dev C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\copia-B
+Cloning into 'C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\copia-B'...
+done.
+Salida: 0
+
+$ git config user.name kevinIllanes
+(sin salida)
+Salida: 0
+
+$ git config user.email snow.illanes@gmail.com
+(sin salida)
+Salida: 0
+
+$ git config core.autocrlf true
+(sin salida)
+Salida: 0
+
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+Salida: 0
+
+$ git commit -m docs: update project information
+[Dev 8c82321] docs: update project information
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+Salida: 0
+
+$ git push origin Dev
+To C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+   6ccd160..8c82321  Dev -> Dev
+Salida: 0
+
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+Salida: 0
+
+$ git commit -m docs: add team information
+[Dev f4f6b9f] docs: add team information
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+Salida: 0
+
+$ git push origin Dev
+To C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+ ! [rejected]        Dev -> Dev (fetch first)
+error: failed to push some refs to 'C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+Salida: 1
