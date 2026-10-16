@@ -1,36 +1,69 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    [SerializeField] private float interactionDistance = 2f;
-    [SerializeField] private Camera playerCamera;
+    [SerializeField] private float interactionDistance = 2.4f;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Keyboard.current == null || !Keyboard.current.eKey.wasPressedThisFrame)
         {
-            TryInteract();
-        }
-    }
-
-    private void TryInteract()
-    {
-        if (playerCamera == null)
-        {
-            Debug.LogWarning("Player camera is not assigned.");
             return;
         }
 
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
+        if (GameManager.Instance != null && GameManager.Instance.IsEnteringCode)
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            return;
+        }
 
-            if (interactable != null)
+        IInteractable closest = FindClosestInteractable();
+        if (closest != null)
+        {
+            closest.Interact();
+        }
+        else if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ShowMessage("No hay nada para interactuar cerca.", 2f);
+        }
+    }
+
+    private IInteractable FindClosestInteractable()
+    {
+        MonoBehaviour[] behaviours = FindObjectsByType<MonoBehaviour>();
+        IInteractable closest = null;
+        float closestDistance = interactionDistance;
+
+        // La llave aparece encima del cofre. Si ambos estan al alcance,
+        // debe recogerse la llave en vez de volver a interactuar con el cofre.
+        foreach (MonoBehaviour behaviour in behaviours)
+        {
+            if (!behaviour.isActiveAndEnabled || !(behaviour is KeyItem key))
             {
-                interactable.Interact();
+                continue;
+            }
+
+            if (Vector3.Distance(transform.position, behaviour.transform.position) <= interactionDistance)
+            {
+                return key;
             }
         }
+
+        foreach (MonoBehaviour behaviour in behaviours)
+        {
+            if (!behaviour.isActiveAndEnabled || behaviour.gameObject == gameObject || !(behaviour is IInteractable interactable))
+            {
+                continue;
+            }
+
+            float distance = Vector3.Distance(transform.position, behaviour.transform.position);
+            if (distance <= closestDistance)
+            {
+                closestDistance = distance;
+                closest = interactable;
+            }
+        }
+
+        return closest;
     }
 }
