@@ -26,8 +26,4 @@ Estas respuestas explican los conceptos. Revísalas y exprésalas con tus palabr
 
 ## Caso 05
 
-**¿Cuál es la diferencia entre Fetch y Pull?** Fetch descarga objetos y actualiza referencias del remoto sin integrarlos en los archivos actuales. Pull descarga e integra el avance en la rama actual, según su configuración de merge o rebase.
-
-**¿Por qué se rechaza un Push no fast-forward?** Porque el remoto contiene commits que la historia local que se intenta publicar todavía no incluye. Primero se debe integrar ese trabajo.
-
-**¿Qué riesgo habría al sobrescribir automáticamente el remoto?** Podrían retirarse aportes de compañeros de la historia visible de la rama. El rechazo protege frente a esa pérdida accidental de integración.
+Este caso fue reasignado por el equipo y queda fuera de la responsabilidad de Integrante 1. Las notas técnicas y registros de simulación local conservados en los archivos anteriores son material histórico, no una reflexión ni evidencia de participación personal en la práctica colaborativa.

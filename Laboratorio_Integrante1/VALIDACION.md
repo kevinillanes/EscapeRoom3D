@@ -16,7 +16,7 @@ Fecha: 14 de octubre de 2026.
 - La rama local Dev se devolvió a 6ccd160 después de conservar el commit 44492f6 en la Feature.
 - La comprobación de ancestros confirmó que la Feature conserva ese commit.
 - Caso 04: Git rechazó el cambio de rama por sobrescritura; stash y recuperación devolvieron exactamente el contenido original pendiente.
-- Caso 05: un remoto bare local rechazó el Push atrasado; Pull, resolución, Push y árbol limpio se comprobaron. No fue un rechazo de GitHub ni participaron dos personas.
+- Caso 05: reasignado por el equipo y fuera de la responsabilidad de Integrante 1. Los registros de simulación local que permanecen en la carpeta son históricos y no se presentan como evidencia personal ni como práctica colaborativa.
 - Antes de publicar se consultó nuevamente GitHub: Dev seguía en 6ccd160, main en ba6e8a7 y Feature_PlayerMovement en dbfe2ed.
 - La publicación autorizada se limita a Feature_PlayerMovement. El estado final puede verificarse con Fetch y Source Control.
 

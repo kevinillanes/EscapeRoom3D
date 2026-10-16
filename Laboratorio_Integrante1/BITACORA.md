@@ -7,7 +7,7 @@ Método real: preparación automática mediante CLI. Revisa estas descripciones 
 | 02 | Feature de práctica basada en main, sin avances de Dev. | Sí, rama local de práctica. | Sí, recreada desde Dev. | Evidencias/02-01 y 02-02. | Capturas Source Control/GitHub y ramas de compañeros. |
 | 03 | Commit de movimiento creado en Dev. | Sí, commit local 44492f6. | Sí, conservado en Feature y Dev restaurada. | Evidencias/03-01 y 03-02. | Prueba visual Unity y captura de Source Control. |
 | 04 | Cambios pendientes que serían sobrescritos al cambiar de rama. | Sí, copia local de laboratorio. | Sí, stash y recuperación exacta verificada. | Evidencias/04-01 y 04-02. | Práctica con integrante 2 y capturas de la interfaz. |
-| 05 | Push non-fast-forward porque el remoto avanzó. | Sí, remoto local y dos copias automáticas. | Sí, Pull, conservación de ambos aportes y Push. | Evidencias/05-01 y 05-02. | Reproducción colaborativa en GitHub y capturas. |
+| 05 | Fuera de la responsabilidad de Integrante 1; reasignado por el equipo. | No se declara como trabajo personal. | No aplicable a esta bitácora. | Los registros 05 existentes se conservan solo como archivo histórico. | La persona responsable presenta sus propias evidencias. |
 
 ## Capturas que debes añadir
 
@@ -16,7 +16,6 @@ Método real: preparación automática mediante CLI. Revisa estas descripciones 
 - [ ] 03: Source Control con Feature e historial final.
 - [ ] 03: Unity en Play y Console revisada.
 - [ ] 04: cambios pendientes, advertencia, stash, recuperación.
-- [ ] 05: rechazo GitHub, Pull, Push exitoso, README remoto y estado limpio.
 
 ## Comprobación personal
 
