@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private GUIStyle titleStyle;
     private GUIStyle bodyStyle;
     private GUIStyle centeredStyle;
+    private int initializationRuns;
 
     private void Awake()
     {
@@ -36,6 +37,27 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        // CASE16_INITIALIZATION_POINT
+    }
+
+    private void Initialize()
+    {
+        initializationRuns++;
+        Debug.Log($"[CASO 16] Initialize ejecutado {initializationRuns} vez/veces.");
+
+        if (initializationRuns > 1)
+        {
+            ShowMessage("ERROR CASO 16: el juego se inicializo dos veces.", 10f);
+        }
+    }
+
+    private void InitializeGameState()
+    {
+        Initialize();
     }
 
     private void Update()
