@@ -86,5 +86,7 @@ La verificación dio `False` para los dos archivos de notas en `Dev`; por lo tan
 
 `Feature_Animation` fue actualizada con la versión más reciente de `Dev`. El conflicto en `PuzzleManager.cs` se resolvió conservando tanto `Configure(...)`, necesario para construir el juego, como la validación normalizada del caso 19.
 
-El enlace y el estado del Pull Request se registran en `Evidencias/Caso20/20-01-pull-request.md`. La revisión, la solicitud de corrección y la aprobación deben hacerlas desde la cuenta real de otro integrante para que la colaboración sea comprobable.
+El Pull Request #1 recibió una revisión real de Carolina Lohrmann. Ella solicitó validar `PuzzleManager` antes de activar el canvas del puzzle. La corrección se realizó en `3c01b17`, Carolina volvió a revisar y aprobó el cambio, y el PR fue integrado en `Dev` mediante `41e80fd`.
+
+La prueba final quedó registrada en `Capturas/Caso20/20-07-prueba-final-unity.mp4`. El video muestra el movimiento y la animación del dinosaurio, el código `1234`, el cofre, la llave y la puerta hasta completar el escape.
 
