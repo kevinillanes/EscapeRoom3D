@@ -1,0 +1,35 @@
+02-01-origen-equivocado
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git switch main
+Your branch is up to date with 'origin/main'.
+Switched to branch 'main'
+Salida: 0
+
+$ git switch -c Practica/Caso02-Origen
+Switched to a new branch 'Practica/Caso02-Origen'
+Salida: 0
+
+$ git log --graph --oneline --decorate --max-count=12 main Dev Practica/Caso02-Origen
+* 6ccd160 (origin/Feature_Interaction, origin/Dev, Dev) feat: agrega objeto de prueba para validar la interacción
+* d94cf7d chore: habilita Both en Active Input Handling
+* 26fbe94 feat: agrega PlayerInteraction al Player en la escena
+* 69fd015 feat: completa la interacción con raycast
+* 8139e34 feat: agrega interacción del jugador
+* ff34039 (Respaldo/ArchivosLocales-AntesPreparacion) Save latest Unity asset changes locally
+* 71e01d8 Save latest Unity project changes locally
+| * ba6e8a7 (HEAD -> Practica/Caso02-Origen, origin/main, main) Document project overview in README
+|/
+* dbe833d Add Unity project files
+* c8a1e9b (origin/Feature_Animation) Initial commit
+Salida: 0
+
+$ git rev-parse Practica/Caso02-Origen
+ba6e8a74adae41598f197e2487060e7351b18f6c
+Salida: 0
+
+$ git rev-parse main
+ba6e8a74adae41598f197e2487060e7351b18f6c
+Salida: 0

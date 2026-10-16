@@ -1,0 +1,19 @@
+CASO 16 - CONFLICTO Y ACCEPT BOTH
+
+Ramas:
+- Caso16/Initialize-A: 32c63add72ca27928c813c45b73aed41bf4663d0
+- Caso16/Initialize-B: 1ff6f794155b76b54bcceb9c38660a6e860f38aa
+- Integración: Caso16/Integracion-Kevin
+
+Merge con ambas llamadas:
+2c3a81104734be743c9971c550896024725a7fd2 merge: reproduce duplicate initialization case 16
+
+Resultado real observado al entrar en Play Mode:
+[CASO 16] Initialize ejecutado 1 vez/veces.
+[CASO 16] Initialize ejecutado 2 vez/veces.
+
+Corrección:
+a680f06e698b6cf823dcb02add4bd6c05f894129 fix: remove duplicate game initialization
+
+Resultado final: quedó una sola llamada a Initialize();.
+

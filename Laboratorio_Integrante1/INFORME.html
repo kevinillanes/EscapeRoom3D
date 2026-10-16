@@ -1,0 +1,445 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Integrante 1 · Evidencias Git</title><style>body{margin:0;background:#101622;color:#e9eef7;font:16px/1.6 system-ui,sans-serif}main{max-width:1000px;margin:50px auto;padding:0 24px}h1{font-size:36px;line-height:1.2}a{color:#8fd7ff}.notice{padding:20px;border:1px solid #f0bd58;border-radius:12px;background:#262318}details{background:#192333;border:1px solid #35435a;border-radius:10px;margin:16px 0;padding:16px}summary{cursor:pointer;font-weight:650}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 Consolas,monospace}code{color:#a7e8cb}small{color:#b6c5d8}</style><main><small>ESCAPE ROOM 3D · 14 OCTUBRE 2026</small><h1>Integrante 1: registros de Git</h1><p>Rama preparada: <code>Feature_PlayerMovement</code>. Responsabilidad: movimiento del jugador.</p><div class="notice"><strong>Qué muestran estas evidencias</strong><p>Son salidas reales de operaciones automáticas de Git. Las imágenes se generaron a partir de esos registros; no son capturas de VS Code. Caso 04: copia de laboratorio. Caso 05: archivo histórico de preparación local, reasignado y fuera del alcance personal de Integrante 1; no acredita participación en GitHub. La prueba visual de Unity sigue pendiente.</p></div><p><a href="EMPIEZA_AQUI.md">Pasos mínimos y estado</a> · <a href="BITACORA.md">Bitácora</a> · <a href="REFLEXIONES.md">Reflexiones</a> · <a href="VALIDACION.md">Validación</a></p><details><summary>02-01-origen-equivocado</summary><p><a href="Evidencias/02-01-origen-equivocado.txt">Abrir registro TXT</a> · <a href="Evidencias/02-01-origen-equivocado.png">Abrir imagen del registro</a></p><pre>02-01-origen-equivocado
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git switch main
+Your branch is up to date with &#39;origin/main&#39;.
+Switched to branch &#39;main&#39;
+Salida: 0
+
+$ git switch -c Practica/Caso02-Origen
+Switched to a new branch &#39;Practica/Caso02-Origen&#39;
+Salida: 0
+
+$ git log --graph --oneline --decorate --max-count=12 main Dev Practica/Caso02-Origen
+* 6ccd160 (origin/Feature_Interaction, origin/Dev, Dev) feat: agrega objeto de prueba para validar la interacción
+* d94cf7d chore: habilita Both en Active Input Handling
+* 26fbe94 feat: agrega PlayerInteraction al Player en la escena
+* 69fd015 feat: completa la interacción con raycast
+* 8139e34 feat: agrega interacción del jugador
+* ff34039 (Respaldo/ArchivosLocales-AntesPreparacion) Save latest Unity asset changes locally
+* 71e01d8 Save latest Unity project changes locally
+| * ba6e8a7 (HEAD -&gt; Practica/Caso02-Origen, origin/main, main) Document project overview in README
+|/
+* dbe833d Add Unity project files
+* c8a1e9b (origin/Feature_Animation) Initial commit
+Salida: 0
+
+$ git rev-parse Practica/Caso02-Origen
+ba6e8a74adae41598f197e2487060e7351b18f6c
+Salida: 0
+
+$ git rev-parse main
+ba6e8a74adae41598f197e2487060e7351b18f6c
+Salida: 0
+</pre></details>
+<details><summary>02-02-origen-corregido</summary><p><a href="Evidencias/02-02-origen-corregido.txt">Abrir registro TXT</a> · <a href="Evidencias/02-02-origen-corregido.png">Abrir imagen del registro</a></p><pre>02-02-origen-corregido
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git switch Dev
+Your branch is up to date with &#39;origin/Dev&#39;.
+Switched to branch &#39;Dev&#39;
+Salida: 0
+
+$ git branch -D Practica/Caso02-Origen
+Deleted branch Practica/Caso02-Origen (was ba6e8a7).
+Salida: 0
+
+$ git branch Practica/Caso02-Origen Dev
+(sin salida)
+Salida: 0
+
+$ git rev-parse Practica/Caso02-Origen
+6ccd160ee69a80ea70da65c57852380b790929b0
+Salida: 0
+
+$ git log --graph --oneline --decorate --max-count=12 Dev Practica/Caso02-Origen
+* 6ccd160 (HEAD -&gt; Dev, origin/Feature_Interaction, origin/Dev, Practica/Caso02-Origen) feat: agrega objeto de prueba para validar la interacción
+* d94cf7d chore: habilita Both en Active Input Handling
+* 26fbe94 feat: agrega PlayerInteraction al Player en la escena
+* 69fd015 feat: completa la interacción con raycast
+* 8139e34 feat: agrega interacción del jugador
+* ff34039 (Respaldo/ArchivosLocales-AntesPreparacion) Save latest Unity asset changes locally
+* 71e01d8 Save latest Unity project changes locally
+* dbe833d Add Unity project files
+* c8a1e9b (origin/Feature_Animation) Initial commit
+Salida: 0
+
+$ git switch Feature_PlayerMovement
+Your branch is ahead of &#39;origin/Feature_PlayerMovement&#39; by 9 commits.
+  (use &quot;git push&quot; to publish your local commits)
+Switched to branch &#39;Feature_PlayerMovement&#39;
+Salida: 0
+</pre></details>
+<details><summary>03-01-commit-equivocado-local</summary><p><a href="Evidencias/03-01-commit-equivocado-local.txt">Abrir registro TXT</a> · <a href="Evidencias/03-01-commit-equivocado-local.png">Abrir imagen del registro</a></p><pre>03-01-commit-equivocado-local
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git switch Dev
+Your branch is up to date with &#39;origin/Dev&#39;.
+Switched to branch &#39;Dev&#39;
+Salida: 0
+
+$ git diff -- Assets/01_Scripts/Player/PlayerController.cs
+diff --git a/Assets/01_Scripts/Player/PlayerController.cs b/Assets/01_Scripts/Player/PlayerController.cs
+index 79c97fc..207be3e 100644
+--- a/Assets/01_Scripts/Player/PlayerController.cs
++++ b/Assets/01_Scripts/Player/PlayerController.cs
+@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
+
+         if (Keyboard.current != null)
+         {
+-            if (Keyboard.current.wKey.isPressed) input.y += 1;
+-            if (Keyboard.current.sKey.isPressed) input.y -= 1;
+-            if (Keyboard.current.aKey.isPressed) input.x -= 1;
+-            if (Keyboard.current.dKey.isPressed) input.x += 1;
++            if ((Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed)) input.y += 1;
++            if ((Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)) input.y -= 1;
++            if ((Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)) input.x -= 1;
++            if ((Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)) input.x += 1;
+         }
+
+         Vector3 movement = new Vector3(input.x, 0f, input.y);
+Salida: 0
+
+$ git add -- Assets/01_Scripts/Player/PlayerController.cs
+(sin salida)
+Salida: 0
+
+$ git commit -m feat: add player movement
+[Dev 44492f6] feat: add player movement
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+Salida: 0
+
+$ git rev-parse HEAD
+44492f6e60af49d4f829a7b98f31d64bf273d4cd
+Salida: 0
+
+$ git log -2 --oneline --decorate Dev
+44492f6 (HEAD -&gt; Dev) feat: add player movement
+6ccd160 (origin/Feature_Interaction, origin/Dev, Practica/Caso02-Origen) feat: agrega objeto de prueba para validar la interacción
+Salida: 0
+
+No se hizo Push de Dev. Adaptacion: el movimiento ya existia; se agrego soporte de flechas.</pre></details>
+<details><summary>03-02-commit-conservado-y-Dev-corregida</summary><p><a href="Evidencias/03-02-commit-conservado-y-Dev-corregida.txt">Abrir registro TXT</a> · <a href="Evidencias/03-02-commit-conservado-y-Dev-corregida.png">Abrir imagen del registro</a></p><pre>03-02-commit-conservado-y-Dev-corregida
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git switch Feature_PlayerMovement
+Your branch is ahead of &#39;origin/Feature_PlayerMovement&#39; by 9 commits.
+  (use &quot;git push&quot; to publish your local commits)
+Switched to branch &#39;Feature_PlayerMovement&#39;
+Salida: 0
+
+$ git merge --no-ff Dev -m chore: conserva movimiento en Feature_PlayerMovement
+Merge made by the &#39;ort&#39; strategy.
+ Assets/01_Scripts/Player/PlayerController.cs | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+Salida: 0
+
+$ git branch Practica/Caso03-CommitEquivocado 44492f6e60af49d4f829a7b98f31d64bf273d4cd
+(sin salida)
+Salida: 0
+
+$ git update-ref refs/heads/Dev 6ccd160ee69a80ea70da65c57852380b790929b0 44492f6e60af49d4f829a7b98f31d64bf273d4cd
+(sin salida)
+Salida: 0
+
+$ git merge-base --is-ancestor 44492f6e60af49d4f829a7b98f31d64bf273d4cd Feature_PlayerMovement
+(sin salida)
+Salida: 0
+
+$ git rev-parse Dev
+6ccd160ee69a80ea70da65c57852380b790929b0
+Salida: 0
+
+$ git log --graph --oneline --decorate --max-count=14 Dev Feature_PlayerMovement
+*   ad2a19f (HEAD -&gt; Feature_PlayerMovement) chore: conserva movimiento en Feature_PlayerMovement
+|\
+| * 44492f6 (Practica/Caso03-CommitEquivocado) feat: add player movement
+* | 4fe8afb chore: integra Dev en Feature_PlayerMovement
+|\|
+| * 6ccd160 (origin/Feature_Interaction, origin/Dev, Practica/Caso02-Origen, Dev) feat: agrega objeto de prueba para validar la interacción
+| * d94cf7d chore: habilita Both en Active Input Handling
+| * 26fbe94 feat: agrega PlayerInteraction al Player en la escena
+| * 69fd015 feat: completa la interacción con raycast
+| * 8139e34 feat: agrega interacción del jugador
+| * ff34039 (Respaldo/ArchivosLocales-AntesPreparacion) Save latest Unity asset changes locally
+| * 71e01d8 Save latest Unity project changes locally
+| * dbe833d Add Unity project files
+* | dbfe2ed (origin/Feature_PlayerMovement, Respaldo/PlayerMovement-AntesPreparacion) Document project overview in README
+* | 57a1ecd Add PlayerController to player movement feature
+|/
+* c8a1e9b (origin/Feature_Animation) Initial commit
+Salida: 0
+
+$ git status --porcelain
+(sin salida)
+Salida: 0
+</pre></details>
+<details><summary>04-01-cambios-y-bloqueo-real</summary><p><a href="Evidencias/04-01-cambios-y-bloqueo-real.txt">Abrir registro TXT</a> · <a href="Evidencias/04-01-cambios-y-bloqueo-real.png">Abrir imagen del registro</a></p><pre>04-01-cambios-y-bloqueo-real
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git clone --no-hardlinks --branch Feature_PlayerMovement C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso04
+Cloning into &#39;C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso04&#39;...
+done.
+Salida: 0
+
+$ git config user.name kevinIllanes
+(sin salida)
+Salida: 0
+
+$ git config user.email snow.illanes@gmail.com
+(sin salida)
+Salida: 0
+
+$ git config core.autocrlf true
+(sin salida)
+Salida: 0
+
+$ git switch -c Feature_Interaction
+Switched to a new branch &#39;Feature_Interaction&#39;
+Salida: 0
+
+$ git switch -c Practica/StashDestino
+Switched to a new branch &#39;Practica/StashDestino&#39;
+Salida: 0
+
+$ git add -- Assets/01_Scripts/Interaction/PlayerInteraction.cs
+(sin salida)
+Salida: 0
+
+$ git commit -m chore: prepara destino de practica stash
+[Practica/StashDestino 4798961] chore: prepara destino de practica stash
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Salida: 0
+
+$ git switch Feature_Interaction
+Switched to branch &#39;Feature_Interaction&#39;
+Salida: 0
+
+$ git diff -- Assets/01_Scripts/Interaction/PlayerInteraction.cs
+diff --git a/Assets/01_Scripts/Interaction/PlayerInteraction.cs b/Assets/01_Scripts/Interaction/PlayerInteraction.cs
+index 30e4d5c..74bd505 100644
+--- a/Assets/01_Scripts/Interaction/PlayerInteraction.cs
++++ b/Assets/01_Scripts/Interaction/PlayerInteraction.cs
+@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
+     {
+         if (playerCamera == null)
+         {
+-            Debug.LogWarning(&quot;Player camera is not assigned.&quot;);
++            Debug.LogWarning(&quot;CASO04 trabajo pendiente sin commit.&quot;);
+             return;
+         }
+Salida: 0
+
+$ git switch Practica/StashDestino
+error: Your local changes to the following files would be overwritten by checkout:
+	Assets/01_Scripts/Interaction/PlayerInteraction.cs
+Please commit your changes or stash them before you switch branches.
+Aborting
+Salida: 1
+</pre></details>
+<details><summary>04-02-stash-y-recuperacion</summary><p><a href="Evidencias/04-02-stash-y-recuperacion.txt">Abrir registro TXT</a> · <a href="Evidencias/04-02-stash-y-recuperacion.png">Abrir imagen del registro</a></p><pre>04-02-stash-y-recuperacion
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git stash push -m WIP interaction
+Saved working directory and index state On Feature_Interaction: WIP interaction
+Salida: 0
+
+$ git status --porcelain
+(sin salida)
+Salida: 0
+
+$ git stash list
+stash@{0}: On Feature_Interaction: WIP interaction
+Salida: 0
+
+$ git switch Practica/StashDestino
+Switched to branch &#39;Practica/StashDestino&#39;
+Salida: 0
+
+$ git switch Feature_Interaction
+Switched to branch &#39;Feature_Interaction&#39;
+Salida: 0
+
+$ git stash apply stash@{0}
+On branch Feature_Interaction
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+	modified:   Assets/01_Scripts/Interaction/PlayerInteraction.cs
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+Salida: 0
+
+$ git diff -- Assets/01_Scripts/Interaction/PlayerInteraction.cs
+diff --git a/Assets/01_Scripts/Interaction/PlayerInteraction.cs b/Assets/01_Scripts/Interaction/PlayerInteraction.cs
+index 30e4d5c..74bd505 100644
+--- a/Assets/01_Scripts/Interaction/PlayerInteraction.cs
++++ b/Assets/01_Scripts/Interaction/PlayerInteraction.cs
+@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
+     {
+         if (playerCamera == null)
+         {
+-            Debug.LogWarning(&quot;Player camera is not assigned.&quot;);
++            Debug.LogWarning(&quot;CASO04 trabajo pendiente sin commit.&quot;);
+             return;
+         }
+Salida: 0
+
+Verificacion: contenido recuperado identico al guardado antes del stash.
+$ git restore -- Assets/01_Scripts/Interaction/PlayerInteraction.cs
+(sin salida)
+Salida: 0
+
+$ git status --porcelain
+(sin salida)
+Salida: 0
+
+La copia de laboratorio queda limpia; WIP interaction se conserva para repetir Apply Stash y capturar.</pre></details>
+<details><summary>05-01-preparacion-local-y-rechazo-real</summary><p><a href="Evidencias/05-01-preparacion-local-y-rechazo-real.txt">Abrir registro TXT</a> · <a href="Evidencias/05-01-preparacion-local-y-rechazo-real.png">Abrir imagen del registro</a></p><pre>05-01-preparacion-local-y-rechazo-real
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+SIMULACION LOCAL: dos copias operadas automaticamente. No son acciones de dos integrantes ni un rechazo de GitHub.
+$ git init --bare --initial-branch=Dev C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+Initialized empty Git repository in C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev/.git/laboratorio-integrante1/caso05/remoto.git/
+Salida: 0
+
+$ git clone --no-hardlinks --branch Dev C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\copia-A
+Cloning into &#39;C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\copia-A&#39;...
+done.
+Salida: 0
+
+$ git config user.name kevinIllanes
+(sin salida)
+Salida: 0
+
+$ git config user.email snow.illanes@gmail.com
+(sin salida)
+Salida: 0
+
+$ git config core.autocrlf true
+(sin salida)
+Salida: 0
+
+$ git remote set-url origin C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+(sin salida)
+Salida: 0
+
+$ git push -u origin Dev
+branch &#39;Dev&#39; set up to track &#39;origin/Dev&#39;.
+To C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+ * [new branch]      Dev -&gt; Dev
+Salida: 0
+
+$ git clone --no-hardlinks --branch Dev C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\copia-B
+Cloning into &#39;C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\copia-B&#39;...
+done.
+Salida: 0
+
+$ git config user.name kevinIllanes
+(sin salida)
+Salida: 0
+
+$ git config user.email snow.illanes@gmail.com
+(sin salida)
+Salida: 0
+
+$ git config core.autocrlf true
+(sin salida)
+Salida: 0
+
+$ git add README.md
+warning: in the working copy of &#39;README.md&#39;, LF will be replaced by CRLF the next time Git touches it
+Salida: 0
+
+$ git commit -m docs: update project information
+[Dev 8c82321] docs: update project information
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+Salida: 0
+
+$ git push origin Dev
+To C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+   6ccd160..8c82321  Dev -&gt; Dev
+Salida: 0
+
+$ git add README.md
+warning: in the working copy of &#39;README.md&#39;, LF will be replaced by CRLF the next time Git touches it
+Salida: 0
+
+$ git commit -m docs: add team information
+[Dev f4f6b9f] docs: add team information
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+Salida: 0
+
+$ git push origin Dev
+To C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+ ! [rejected]        Dev -&gt; Dev (fetch first)
+error: failed to push some refs to &#39;C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git&#39;
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: &#39;git pull&#39; before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+Salida: 1
+</pre></details>
+<details><summary>05-02-pull-integracion-y-push-local</summary><p><a href="Evidencias/05-02-pull-integracion-y-push-local.txt">Abrir registro TXT</a> · <a href="Evidencias/05-02-pull-integracion-y-push-local.png">Abrir imagen del registro</a></p><pre>05-02-pull-integracion-y-push-local
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+SIMULACION LOCAL: el remoto de esta practica es un repositorio bare local, no GitHub.
+$ git pull --no-rebase --no-edit origin Dev
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+From C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto
+ * branch            Dev        -&gt; FETCH_HEAD
+   6ccd160..8c82321  Dev        -&gt; origin/Dev
+Salida: 1
+
+$ git diff --name-only --diff-filter=U
+README.md
+Salida: 0
+
+$ git add README.md
+warning: in the working copy of &#39;README.md&#39;, LF will be replaced by CRLF the next time Git touches it
+Salida: 0
+
+$ git commit -m Merge local practice Dev: conserva ambos aportes
+[Dev 02d517a] Merge local practice Dev: conserva ambos aportes
+Salida: 0
+
+$ git push origin Dev
+To C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+   8c82321..02d517a  Dev -&gt; Dev
+Salida: 0
+
+$ git log --graph --oneline --decorate -6
+*   02d517a (HEAD -&gt; Dev, origin/HEAD, origin/Dev) Merge local practice Dev: conserva ambos aportes
+|\
+| * 8c82321 docs: update project information
+* | f4f6b9f docs: add team information
+|/
+* 6ccd160 feat: agrega objeto de prueba para validar la interacción
+* d94cf7d chore: habilita Both en Active Input Handling
+* 26fbe94 feat: agrega PlayerInteraction al Player en la escena
+Salida: 0
+
+$ git status --porcelain
+(sin salida)
+Salida: 0
+
+Verificacion: README conserva ambos aportes; Push local exitoso y working tree limpio.</pre></details><p>Dev se conservó en <code>6ccd160</code>. No se realizaron pruebas en las ramas remotas de compañeros.</p></main></html>

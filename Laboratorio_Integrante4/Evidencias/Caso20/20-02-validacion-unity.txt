@@ -1,0 +1,16 @@
+VALIDACIÓN DE UNITY ANTES DEL PULL REQUEST
+
+Versión: Unity 6000.5.5f1
+Modo: batchmode, nographics
+Fecha: 2026-10-16
+
+Resultados del registro Logs/Case20Validation.log:
+- Compilación de Assembly-CSharp.dll completada.
+- Compilación de Assembly-CSharp-Editor.dll completada.
+- Mensaje: Tundra build success.
+- Errores C# encontrados: 0.
+- Unity invocó el cierre de batchmode correctamente.
+
+Después del cierre, un AssetImportWorker no terminó a tiempo y Unity creó un reporte de cierre. Esto ocurrió después de finalizar la compilación y no produjo errores de scripts. El proceso residual fue cerrado y el cambio automático de EditorBuildSettings.asset fue restaurado.
+
+La prueba jugable final se realizará después de la revisión y antes del Pull Request de Dev hacia main, como indica el caso 20.

@@ -1,0 +1,48 @@
+05-02-pull-integracion-y-push-local
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+SIMULACION LOCAL: el remoto de esta practica es un repositorio bare local, no GitHub.
+$ git pull --no-rebase --no-edit origin Dev
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+From C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto
+ * branch            Dev        -> FETCH_HEAD
+   6ccd160..8c82321  Dev        -> origin/Dev
+Salida: 1
+
+$ git diff --name-only --diff-filter=U
+README.md
+Salida: 0
+
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+Salida: 0
+
+$ git commit -m Merge local practice Dev: conserva ambos aportes
+[Dev 02d517a] Merge local practice Dev: conserva ambos aportes
+Salida: 0
+
+$ git push origin Dev
+To C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso05\remoto.git
+   8c82321..02d517a  Dev -> Dev
+Salida: 0
+
+$ git log --graph --oneline --decorate -6
+*   02d517a (HEAD -> Dev, origin/HEAD, origin/Dev) Merge local practice Dev: conserva ambos aportes
+|\
+| * 8c82321 docs: update project information
+* | f4f6b9f docs: add team information
+|/
+* 6ccd160 feat: agrega objeto de prueba para validar la interacción
+* d94cf7d chore: habilita Both en Active Input Handling
+* 26fbe94 feat: agrega PlayerInteraction al Player en la escena
+Salida: 0
+
+$ git status --porcelain
+(sin salida)
+Salida: 0
+
+Verificacion: README conserva ambos aportes; Push local exitoso y working tree limpio.

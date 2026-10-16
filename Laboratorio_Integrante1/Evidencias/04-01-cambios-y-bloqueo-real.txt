@@ -1,0 +1,64 @@
+04-01-cambios-y-bloqueo-real
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git clone --no-hardlinks --branch Feature_PlayerMovement C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso04
+Cloning into 'C:\Users\kevin\Downloads\EscapeRoom3D-Dev\EscapeRoom3D-Dev\.git\laboratorio-integrante1\caso04'...
+done.
+Salida: 0
+
+$ git config user.name kevinIllanes
+(sin salida)
+Salida: 0
+
+$ git config user.email snow.illanes@gmail.com
+(sin salida)
+Salida: 0
+
+$ git config core.autocrlf true
+(sin salida)
+Salida: 0
+
+$ git switch -c Feature_Interaction
+Switched to a new branch 'Feature_Interaction'
+Salida: 0
+
+$ git switch -c Practica/StashDestino
+Switched to a new branch 'Practica/StashDestino'
+Salida: 0
+
+$ git add -- Assets/01_Scripts/Interaction/PlayerInteraction.cs
+(sin salida)
+Salida: 0
+
+$ git commit -m chore: prepara destino de practica stash
+[Practica/StashDestino 4798961] chore: prepara destino de practica stash
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Salida: 0
+
+$ git switch Feature_Interaction
+Switched to branch 'Feature_Interaction'
+Salida: 0
+
+$ git diff -- Assets/01_Scripts/Interaction/PlayerInteraction.cs
+diff --git a/Assets/01_Scripts/Interaction/PlayerInteraction.cs b/Assets/01_Scripts/Interaction/PlayerInteraction.cs
+index 30e4d5c..74bd505 100644
+--- a/Assets/01_Scripts/Interaction/PlayerInteraction.cs
++++ b/Assets/01_Scripts/Interaction/PlayerInteraction.cs
+@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
+     {
+         if (playerCamera == null)
+         {
+-            Debug.LogWarning("Player camera is not assigned.");
++            Debug.LogWarning("CASO04 trabajo pendiente sin commit.");
+             return;
+         }
+Salida: 0
+
+$ git switch Practica/StashDestino
+error: Your local changes to the following files would be overwritten by checkout:
+	Assets/01_Scripts/Interaction/PlayerInteraction.cs
+Please commit your changes or stash them before you switch branches.
+Aborting
+Salida: 1
