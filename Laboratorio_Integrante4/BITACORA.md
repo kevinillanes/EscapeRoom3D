@@ -1,5 +1,7 @@
 # Bitácora — Integrante 4
 
+> Versión personal completa con reflexiones e imágenes insertadas: [Bitácora y reflexiones de Kevin](Bitacora/Bitacora_Reflexiones_Kevin.md).
+
 **Estudiante:** Kevin Illanes  
 **Parte del juego:** animaciones del cofre y puerta, llave y estado del juego  
 **Rama:** `Feature_Animation`  
