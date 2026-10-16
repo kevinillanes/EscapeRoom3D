@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // CASE16_INITIALIZATION_POINT
+        InitializeGameState();
     }
 
     private void Initialize()
