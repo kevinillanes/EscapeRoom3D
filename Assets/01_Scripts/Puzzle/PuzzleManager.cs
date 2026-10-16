@@ -5,10 +5,10 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private string correctCode = "1234";
     [SerializeField] private ChestController chest;
 
-    //prueba
     public bool ValidateCode(string code)
     {
-        bool valid = (code == correctCode);
+        string normalizedCode = code?.Trim();
+        bool valid = normalizedCode == correctCode;
 
         if (valid)
         {
