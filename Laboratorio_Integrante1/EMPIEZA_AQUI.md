@@ -43,7 +43,7 @@ El PDF pide trabajar principalmente desde Source Control de VS Code. Los registr
 | 02 | Rama local creada desde main, origen comprobado y corregido a Dev; Feature actual integrada con Dev. | Capturas en VS Code/GitHub y cada compañero en su Feature. La rama auxiliar de práctica es local. |
 | 03 | Commit local en Dev, conservación del mismo commit en tu Feature y restauración de Dev. | Captura de Source Control y prueba visual del movimiento en Unity. |
 | 04 | Bloqueo real al cambiar de rama, stash WIP interaction y recuperación exacta del contenido, en una copia de laboratorio. | Repetición con integrante 2 en Source Control y sus capturas. |
-| 05 | Rechazo real non-fast-forward, Pull con resolución y Push exitoso usando dos copias y un remoto bare local. | Realización con un compañero y GitHub: rechazo, Pull, Push y captura remota. |
+| 05 | Fuera de la responsabilidad de Integrante 1; reasignado por el equipo. Los registros locales anteriores son solo archivo histórico y no se presentan como trabajo personal. | No es requisito pendiente de Integrante 1. La persona responsable coordina y presenta sus propias evidencias. |
 
 No marques como terminados los requisitos visuales o colaborativos que todavía no realizaste.
 
@@ -89,22 +89,9 @@ Si quieres repetirlo visualmente sin tocar el proyecto principal:
 
 Esta copia está aislada. No hagas Push desde ella. Para acreditar la participación del integrante 2, repitan la práctica juntos en su copia de trabajo.
 
-## Caso 05: simulación local y práctica con compañero
+## Caso 05: fuera de la responsabilidad de Integrante 1
 
-La demostración automática utilizó `.git/laboratorio-integrante1/caso05`: copia-A, copia-B y remoto.git. Ambos roles fueron operados automáticamente, sin simular identidades de compañeros.
-
-A publicó `docs: update project information`. B, sin Pull, creó `docs: add team information`. El Push de B fue rechazado. B hizo Pull, resolvió el conflicto del README conservando ambas secciones y completó el Push. Se verificó el contenido y el árbol limpio.
-
-Para cumplir la práctica en GitHub:
-
-1. Coordina con un compañero; ambos actualizan Dev con Pull y parten sin cambios pendientes.
-2. Tu compañero modifica información del proyecto en README, hace commit `docs: update project information` y Push.
-3. Tú, sin Pull, modificas la sección del equipo y haces commit `docs: add team information`.
-4. Ejecuta **Push**, no Sync, y captura el rechazo.
-5. Haz Pull, resuelve si hay conflicto y captura la actualización.
-6. Haz Push y captura el resultado en GitHub y el estado limpio.
-
-Esos commits sí afectan Dev compartida; háganlos coordinadamente. No uses Force Push.
+El equipo reasignó este caso. No corresponde a Integrante 1 realizarlo ni presentar como propias las evidencias anteriores de la simulación local. Los archivos `Evidencias/05-*` y las secciones de Caso 05 del informe se conservan únicamente como archivo histórico de preparación; no acreditan participación colaborativa en GitHub. La persona responsable debe coordinar y registrar sus propias operaciones y capturas.
 
 ## Registros disponibles
 
