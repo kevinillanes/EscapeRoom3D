@@ -13,7 +13,8 @@ public class PuzzleManager : MonoBehaviour
 
     public bool ValidateCode(string code)
     {
-        bool valid = code == correctCode;
+        string normalizedCode = code?.Trim();
+        bool valid = normalizedCode == correctCode;
 
         if (valid)
         {
