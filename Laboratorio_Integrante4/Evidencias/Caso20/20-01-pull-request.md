@@ -2,10 +2,10 @@
 
 ## Feature_Animation hacia Dev
 
-- Estado inicial: preparado para abrir.
+- Estado: abierto, esperando revisión de otro integrante.
 - Rama origen: `Feature_Animation`
 - Rama destino: `Dev`
-- Pull Request: se añadirá aquí después de crearlo.
+- Pull Request #1: https://github.com/kevinillanes/EscapeRoom3D/pull/1
 
 ## Revisión colaborativa pendiente
 
