@@ -16,7 +16,9 @@ Revisé el repositorio del equipo en GitHub, donde aparecen las carpetas de Unit
 
 Aprendí que hay que revisar qué archivos se comparten y distinguir el trabajo original del equipo de mi revisión personal. La captura de GitHub no reemplaza las evidencias del problema inicial ni la prueba de Unity.
 
-Evidencia: [repositorio en GitHub](../Capturas/01-04-repositorio-GitHub.png).
+Capturas:
+
+![repositorio en GitHub](../Capturas/01-04-repositorio-GitHub.png)
 
 ## Reflexión Caso 02 (Rama creada desde el origen incorrecto)
 
@@ -28,7 +30,13 @@ En la práctica local creé Feature_PlayerMovement desde main por error. Como to
 
 Aprendí a comprobar la rama actual antes de crear otra y a revisar el gráfico para confirmar su origen.
 
-Evidencias: [origen equivocado](../Capturas/02-01-origen-equivocado.png), [origen corregido](../Capturas/02-02-origen-corregido.png) y [ramas en GitHub](../Capturas/02-03-ramas-GitHub.png).
+Capturas:
+
+![origen equivocado](../Capturas/02-01-origen-equivocado.png)
+
+![origen corregido](../Capturas/02-02-origen-corregido.png)
+
+![ramas en GitHub](../Capturas/02-03-ramas-GitHub.png)
 
 ## Reflexión Caso 03 (Commit en la rama equivocada)
 
@@ -40,9 +48,21 @@ La base ya tenía movimiento WASD. Con asistencia preparé el cambio para añadi
 
 Aprendí que antes de deshacer un commit debo comprobar dónde está conservado y si ya se compartió. La corrección de esta práctica fue local y no se publicó en Dev.
 
-Evidencias: [cambio en Dev](../Capturas/03-00-cambio-en-Dev.png), [commit equivocado](../Capturas/03-01-commit-en-Dev.png), [commit conservado](../Capturas/03-02-commit-conservado.png), [Dev corregida](../Capturas/03-03-Dev-corregida.png) e [historial final](../Capturas/03-04-historial-final.png).
+Capturas:
 
-La [captura de Unity](../Capturas/03-05-prueba-Unity.png) es anterior y sirve como apoyo: muestra EscapeRoom3D-Dev en Play, pero no acredita la prueba de esta copia actual ni muestra Console abierta.
+![cambio en Dev](../Capturas/03-00-cambio-en-Dev.png)
+
+![commit equivocado](../Capturas/03-01-commit-en-Dev.png)
+
+![commit conservado](../Capturas/03-02-commit-conservado.png)
+
+![Dev corregida](../Capturas/03-03-Dev-corregida.png)
+
+![historial final](../Capturas/03-04-historial-final.png)
+
+La captura de Unity es anterior y sirve como apoyo: muestra EscapeRoom3D-Dev en Play, pero no acredita la prueba de esta copia actual ni muestra Console abierta.
+
+![captura de Unity](../Capturas/03-05-prueba-Unity.png)
 
 ## Reflexión Caso 04 (Cambios locales y Stash)
 
@@ -58,4 +78,14 @@ Al aplicar el stash en la rama destino apareció un conflicto. Revisé las versi
 
 Aprendí a comprobar la rama antes de aplicar el stash y a usar Apply para mantenerlo hasta verificar la recuperación.
 
-Evidencias: [cambio sin commit](../Capturas/04-01-cambio-sin-commit.png), [advertencia](../Capturas/04-02-advertencia.png), [stash guardado](../Capturas/04-03-stash-guardado.png), [trabajo recuperado](../Capturas/04-04-trabajo-recuperado.png) y [conflicto adicional](../Capturas/04-extra-conflicto-stash-en-destino.png).
+Capturas:
+
+![cambio sin commit](../Capturas/04-01-cambio-sin-commit.png)
+
+![advertencia](../Capturas/04-02-advertencia.png)
+
+![stash guardado](../Capturas/04-03-stash-guardado.png)
+
+![trabajo recuperado](../Capturas/04-04-trabajo-recuperado.png)
+
+![conflicto adicional](../Capturas/04-extra-conflicto-stash-en-destino.png)
