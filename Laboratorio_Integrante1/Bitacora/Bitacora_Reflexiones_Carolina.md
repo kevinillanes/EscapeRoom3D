@@ -18,7 +18,11 @@ Aprendí que hay que revisar qué archivos se comparten y distinguir el trabajo 
 
 Capturas:
 
-![repositorio en GitHub](../Capturas/01-04-repositorio-GitHub.png)
+**Caso 01 — Repositorio publicado**
+
+Vista de kevinillanes/EscapeRoom3D en GitHub, con la URL, main, las carpetas de Unity, .gitignore y el README del equipo.
+
+![Caso 01 — Repositorio publicado](../Capturas/01-04-repositorio-GitHub.png)
 
 ## Reflexión Caso 02 (Rama creada desde el origen incorrecto)
 
@@ -32,11 +36,23 @@ Aprendí a comprobar la rama actual antes de crear otra y a revisar el gráfico 
 
 Capturas:
 
-![origen equivocado](../Capturas/02-01-origen-equivocado.png)
+**Caso 02 — Origen equivocado**
 
-![origen corregido](../Capturas/02-02-origen-corregido.png)
+Feature_PlayerMovement y main apuntan a ba6e8a7, mientras Dev contiene avances posteriores.
 
-![ramas en GitHub](../Capturas/02-03-ramas-GitHub.png)
+![Caso 02 — Origen equivocado](../Capturas/02-01-origen-equivocado.png)
+
+**Caso 02 — Origen corregido**
+
+La Feature recreada y Dev apuntan al mismo commit 6ccd160; main permanece separado.
+
+![Caso 02 — Origen corregido](../Capturas/02-02-origen-corregido.png)
+
+**Caso 02 — Ramas remotas**
+
+Lista de ramas publicadas del repositorio y cuenta carolinalohrmann visible en GitHub.
+
+![Caso 02 — Ramas remotas](../Capturas/02-03-ramas-GitHub.png)
 
 ## Reflexión Caso 03 (Commit en la rama equivocada)
 
@@ -50,19 +66,41 @@ Aprendí que antes de deshacer un commit debo comprobar dónde está conservado 
 
 Capturas:
 
-![cambio en Dev](../Capturas/03-00-cambio-en-Dev.png)
+**Caso 03 — Cambio antes del commit**
 
-![commit equivocado](../Capturas/03-01-commit-en-Dev.png)
+Comparación de PlayerController.cs en Dev: se añaden flechas al movimiento existente, antes de confirmar el cambio.
 
-![commit conservado](../Capturas/03-02-commit-conservado.png)
+![Caso 03 — Cambio antes del commit](../Capturas/03-00-cambio-en-Dev.png)
 
-![Dev corregida](../Capturas/03-03-Dev-corregida.png)
+**Caso 03 — Commit en Dev**
 
-![historial final](../Capturas/03-04-historial-final.png)
+Commit 65ee4d2, feat: add player movement, con autor carolinalohrmann, creado en la rama equivocada.
 
-La captura de Unity es anterior y sirve como apoyo: muestra EscapeRoom3D-Dev en Play, pero no acredita la prueba de esta copia actual ni muestra Console abierta.
+![Caso 03 — Commit en Dev](../Capturas/03-01-commit-en-Dev.png)
 
-![captura de Unity](../Capturas/03-05-prueba-Unity.png)
+**Caso 03 — Commit conservado**
+
+Feature_PlayerMovement y Dev apuntan a 65ee4d2 antes de corregir Dev, conservando el trabajo en la Feature.
+
+![Caso 03 — Commit conservado](../Capturas/03-02-commit-conservado.png)
+
+**Caso 03 — Dev corregida**
+
+Dev vuelve a 6ccd160, sin cambios pendientes, y el script recupera el movimiento WASD de la base.
+
+![Caso 03 — Dev corregida](../Capturas/03-03-Dev-corregida.png)
+
+**Caso 03 — Historial final**
+
+La Feature conserva 65ee4d2 y Dev queda en el commit anterior, con el área de cambios limpia.
+
+![Caso 03 — Historial final](../Capturas/03-04-historial-final.png)
+
+**Caso 03 — Vista de Unity en Play**
+
+Vista de EscapeRoom3D-Dev en modo Play, con el jugador en Scene y Game y el script PlayerController visible en el Inspector.
+
+![Caso 03 — Vista de Unity en Play](../Capturas/03-05-prueba-Unity.png)
 
 ## Reflexión Caso 04 (Cambios locales y Stash)
 
@@ -80,12 +118,32 @@ Aprendí a comprobar la rama antes de aplicar el stash y a usar Apply para mante
 
 Capturas:
 
-![cambio sin commit](../Capturas/04-01-cambio-sin-commit.png)
+**Caso 04 — Cambio sin commit**
 
-![advertencia](../Capturas/04-02-advertencia.png)
+PlayerInteraction.cs modificado en Feature_Interaction: el diff muestra el mensaje CASO04 trabajo pendiente sin commit.
 
-![stash guardado](../Capturas/04-03-stash-guardado.png)
+![Caso 04 — Cambio sin commit](../Capturas/04-01-cambio-sin-commit.png)
 
-![trabajo recuperado](../Capturas/04-04-trabajo-recuperado.png)
+**Caso 04 — Advertencia de cambio de rama**
 
-![conflicto adicional](../Capturas/04-extra-conflicto-stash-en-destino.png)
+VS Code avisa que el cambio de rama sobrescribiría modificaciones locales; el archivo y la rama permanecen visibles.
+
+![Caso 04 — Advertencia de cambio de rama](../Capturas/04-02-advertencia.png)
+
+**Caso 04 — Stash guardado**
+
+La lista muestra WIP interaction y el stash automático anterior; Source Control no tiene cambios pendientes.
+
+![Caso 04 — Stash guardado](../Capturas/04-03-stash-guardado.png)
+
+**Caso 04 — Trabajo recuperado**
+
+En Feature_Interaction vuelve el mensaje CASO04 trabajo pendiente sin commit. y el archivo aparece modificado, sin conflictos.
+
+![Caso 04 — Trabajo recuperado](../Capturas/04-04-trabajo-recuperado.png)
+
+**Caso 04 — Conflicto adicional al aplicar el stash**
+
+Aplicación del stash en Practica/StashDestino: se enfrentan el aviso del destino y el cambio guardado. Esta captura corresponde al problema previo a su corrección.
+
+![Caso 04 — Conflicto adicional al aplicar el stash](../Capturas/04-extra-conflicto-stash-en-destino.png)
