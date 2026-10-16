@@ -50,7 +50,7 @@ La Feature recreada y Dev apuntan al mismo commit 6ccd160; main permanece separa
 
 **Caso 02 — Ramas remotas**
 
-Lista de ramas publicadas del repositorio y cuenta carolinalohrmann visible en GitHub.
+Lista de ramas publicadas del repositorio .
 
 ![Caso 02 — Ramas remotas](../Capturas/02-03-ramas-GitHub.png)
 
