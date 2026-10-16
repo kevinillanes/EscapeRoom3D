@@ -46,14 +46,22 @@ public class ChestController : MonoBehaviour, IInteractable
     {
         if (!unlocked)
         {
-            if (puzzleCanvas != null)
+            if (puzzleManager == null)
             {
-                puzzleCanvas.SetActive(true);
+                puzzleManager = FindAnyObjectByType<PuzzleManager>();
             }
 
             if (puzzleManager == null)
             {
-                puzzleManager = FindAnyObjectByType<PuzzleManager>();
+                const string warning = "No se encontro un PuzzleManager. No se puede iniciar el puzzle.";
+                Debug.LogWarning(warning);
+                GameManager.Instance?.ShowMessage(warning);
+                return;
+            }
+
+            if (puzzleCanvas != null)
+            {
+                puzzleCanvas.SetActive(true);
             }
 
             GameManager.Instance?.BeginPuzzle(puzzleManager);
