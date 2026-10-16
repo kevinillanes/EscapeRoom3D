@@ -219,9 +219,51 @@ Me llamó la atención que Git dejara el archivo de Kevin en mi disco en vez de 
 
 ---
 
+## Caso 10 — Los dos creamos el mismo archivo
+
+**¿Provocado?** Sí · **¿Resuelto?** Sí
+**Evidencias:** `caso10_versiones.png`, `caso10_resultado.png`, `caso10_puzzle.png`
+
+El enunciado pide hacer este caso con `PuzzleManager.cs`, pero en nuestro proyecto ese archivo **ya existe** desde la rama del puzzle. Si lo hubiéramos usado, Git habría tenido una versión común con la que comparar y el conflicto habría salido como *content*, no como Add/Add, que es el que el caso quiere enseñar. Lo hicimos con `Assets/01_Scripts/Systems/GameManager.cs`, que no existía en ninguna rama. Lo verifiqué antes de empezar.
+
+Cada uno lo creó en su rama sin ver lo del otro. Yo lo pensé como el que lleva el estado de la partida, con un `juegoTerminado` y un `TerminarJuego()`. Kevin lo pensó como el que cuenta las pistas encontradas, con `pistasEncontradas`, `totalPistas` y `RegistrarPista()`. Al integrar:
+
+```
+CONFLICT (add/add): Merge conflict in Assets/01_Scripts/Systems/GameManager.cs
+CONFLICT (add/add): Merge conflict in Assets/01_Scripts/Systems/GameManager.cs.meta
+```
+
+**Chocaron dos archivos, no uno.** El `.cs` y también el `.meta`, porque Unity le generó a cada uno un GUID distinto para el mismo archivo. Eso no pasa en un proyecto normal de código: es propio de Unity, donde cada asset arrastra un archivo de identidad aparte. El `.meta` lo resolví quedándome con un solo GUID. Si quedaran los dos, Unity tendría dos identidades para el mismo script y lo reimportaría sin parar.
+
+En el Merge Editor todo el archivo salió marcado, de la primera línea a la última, porque Git no tenía ninguna versión anterior con la que comparar. Para él no eran dos ediciones del mismo archivo, eran dos archivos distintos que casualmente ocupan la misma ruta.
+
+**Resolución:** no elegí una y descarté la otra. Las dos responsabilidades son reales y no se pisan: una cuenta pistas y la otra cierra la partida. Construí una sola clase con los tres campos y los dos métodos, y comprobé que quedara **una única** declaración de `GameManager`. Después abrí Unity: si hubieran quedado dos clases con el mismo nombre, el proyecto no habría compilado. Compiló, y el puzzle del cofre siguió funcionando.
+
+**¿Por qué "el último commit gana" no es una regla válida?** Porque decide por hora de llegada y no por diseño. Aquí habría borrado una funcionalidad entera que alguien escribió, sin avisar a nadie, y esa persona se enteraría recién cuando su parte del juego dejara de funcionar.
+
+**¿Qué principio debe guiar la integración?** Preguntarse qué responsabilidad cumple cada versión, no cuál se ve mejor. Si las dos responsabilidades hacen falta, el resultado las contiene a las dos. Si una sobra, se descarta con un motivo escrito, como hicimos en el Caso 09.
+
+---
+
+## Hallazgo al probar el juego completo
+
+Al terminar el Caso 10 probé el juego entero y encontré algo que no es de Git pero que hay que arreglar antes de entregar:
+
+- El **cofre está en z = −8.5**, pero el piso es un Plane por defecto que llega hasta **z = −5**. O sea, el cofre está flotando fuera del piso.
+- La **Main Camera es un objeto raíz**, no es hija del Player, así que no lo sigue.
+- Si el jugador camina hacia el cofre, se sale del piso y cae al vacío.
+
+Antes no se notaba porque el Player tenía `Use Gravity` desactivado y flotaba sobre la nada. Al resolver el Caso 08 conservamos el `Use Gravity: 1` de la rama de movimiento, que era el aporte real de esa rama, y eso dejó a la vista un problema de diseño del nivel que ya estaba ahí.
+
+La interacción sí funciona, porque el rayo sale de la cámara y no del jugador, y la cámara está a 1.5 unidades del cofre con una distancia de interacción de 2.
+
+**Qué aprendí:** cada uno armó su parte en su propio rincón de la escena y nunca las juntamos en un mismo nivel. Git integró los archivos sin problema —ese era su trabajo y lo hizo— pero que los archivos se junten no significa que el juego tenga sentido. Eso no lo revisa ninguna herramienta.
+
+---
+
 ## Casos pendientes
 
-- **Caso 07** (conflicto en Prefab) y **Caso 10** (Add/Add) los hago con Kevin esta misma noche.
-- **Caso 10:** no se puede hacer con `PuzzleManager.cs` como dice el enunciado, porque ese archivo ya existe en el proyecto desde la rama del puzzle y Git tendría una versión común con la que comparar, así que el conflicto saldría como *content* y no como Add/Add. Lo hacemos con `GameManager.cs`, que no existe todavía.
+- **Caso 07** (conflicto en Prefab) — es el único que falta de mi bloque. Necesita a dos personas tocando el mismo `Player.prefab`, que todavía no existe: hay que crearlo primero arrastrando el Player de la escena a `Assets/02_Prefabs`.
 - **Caso 18** (recuperación de trabajo perdido): la carpeta `Laboratorio_Integrante1` desapareció de todas las ramas después de un push forzado. El commit sigue existiendo como objeto en el repositorio, así que se puede recuperar.
-- **Limpieza antes de entregar:** borrar `TestInteractable.cs`, el `Cubo_Prueba_Interaccion` de la escena, el `archivo_de_prueba.txt`, y unir las secciones `Integrantes` y `Equipo` del README, que quedaron duplicadas.
+- **Arreglo del nivel:** agrandar el piso o mover el cofre adentro, y hacer la cámara hija del Player.
+- **Limpieza antes de entregar:** borrar `TestInteractable.cs`, el `Cubo_Prueba_Interaccion` de la escena, el `archivo_de_prueba.txt`, la carpeta `TutorialInfo` del template de Unity, y unir las secciones `Integrantes` y `Equipo` del README, que quedaron duplicadas.
