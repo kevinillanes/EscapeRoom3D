@@ -26,4 +26,9 @@ La corrección busca primero el `PuzzleManager`, comprueba nuevamente si sigue s
 
 ## Dev hacia main
 
-El primer Pull Request y la prueba final ya están completados. El siguiente paso es crear el Pull Request de `Dev` hacia `main`.
+El primer Pull Request y la prueba final están completados.
+
+- Pull Request #2: https://github.com/kevinillanes/EscapeRoom3D/pull/2
+- Rama origen: `Dev`
+- Rama destino: `main`
+- Estado: abierto para la integración final del equipo.
