@@ -21,7 +21,7 @@ public class DoorController : MonoBehaviour, IInteractable
             return;
         }
 
-        if (GameManager.Instance == null || !GameManager.Instance.HasKey)
+        if (GameManager.Instance == null || GameManager.Instance.HasKey)
         {
             GameManager.Instance?.ShowMessage("La puerta esta cerrada. Necesitas la llave del cofre.", 4f);
             return;
