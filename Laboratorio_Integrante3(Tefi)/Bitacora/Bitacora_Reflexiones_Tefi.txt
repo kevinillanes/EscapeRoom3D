@@ -1,0 +1,35 @@
+Bitacora_Reflexiones_Tefi
+Reflexión Caso 01 (Repositorio incompleto):
+
+¿Por qué no conviene subir Library/? Porque es una carpeta generada automáticamente por Unity, pesa mucho y causa conflictos. Aprendí que si el .gitignore está mal, Git no sube las carpetas necesarias y el proyecto no se puede abrir.
+
+¿Qué diferencia hay entre un archivo ignorado y uno rastreado? Un archivo ignorado no aparece en Git (nunca se sube). Uno rastreado ya está en el historial de Git y se le hace seguimiento.
+
+Reflexión Caso 08 (Conflicto en escena):
+
+¿Por qué es delicado un Prefab/Escena? Porque son archivos serializados en texto que contienen muchos datos. Un merge textual puede ser sintácticamente válido pero romper el juego. Aprendí a usar Accept Both y a probar siempre en Unity después de un merge.
+
+Reflexión Caso 11 (ProjectSettings):
+
+¿Por qué es peligroso modificar ProjectSettings sin entender? Porque afecta el funcionamiento global del juego (input, plataforma, renderizado). Aprendí a revisar los diffs y confirmar con el equipo antes de integrar.
+
+Reflexión Caso 12 (Commit incorrecto):
+
+¿Cuándo conviene Amend? Cuando el commit no ha sido compartido (no se ha hecho Push). Si ya se compartió, es mejor hacer un commit nuevo que elimine el error.
+
+Reflexión Caso 13 (.gitignore):
+
+¿Por qué .gitignore no borró el historial? Porque solo evita que Git empiece a rastrear archivos nuevos. Si un archivo ya está en el índice, Git lo sigue rastreando hasta que le digas explícitamente git rm --cached.
+
+¿Qué diferencia hay entre Working Tree e Index? El Working Tree son los archivos que ves en tu carpeta. El Index es la "sala de espera" donde Git guarda lo que va a incluir en el próximo commit.
+
+Reflexión Caso 14 (Feature desactualizada):
+
+¿Por qué conviene resolver el conflicto en la Feature? Porque así el autor del código resuelve los problemas en su propio entorno y no rompe la rama principal (Dev).
+
+¿Qué diferencia hay entre merge y rebase? El merge une dos ramas creando un commit nuevo (mantiene la historia real). El rebase reescribe la historia moviendo tus commits al final (queda más lineal, pero es más peligroso si ya compartiste tu rama).
+
+Reflexión Caso 15 (Conflictos múltiples):
+
+¿Cómo organicé la resolución? Resolví primero los scripts (más fáciles), luego el Prefab y al final la escena. Aprendí que hay que validar en Unity después de resolver TODOS los conflictos, no antes.
+
