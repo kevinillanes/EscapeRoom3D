@@ -1,0 +1,17 @@
+CASO 18 - RECUPERACIÓN CON REFLOG
+
+Commit original:
+426fd14eb5186f5e1a7449aba0a06b9aa09d2853 test: recovery point
+
+Después de git reset --hard HEAD~1:
+5d6e095 HEAD@{0}: reset: moving to HEAD~1
+426fd14 HEAD@{1}: commit: test: recovery point
+
+Recuperación:
+git switch -c Caso18/Recovered-Kevin 426fd14eb5186f5e1a7449aba0a06b9aa09d2853
+
+Comprobaciones:
+- HEAD = 426fd14eb5186f5e1a7449aba0a06b9aa09d2853
+- RECOVERY_TEST.md existe nuevamente.
+- La rama recuperada fue publicada en origin.
+

@@ -1,0 +1,15 @@
+CASO 17 - REVERT
+
+Rama: Caso17/Revert-Kevin
+
+Commit compartido que rompe la condición de la puerta:
+7e3af480a3811707189cb989ca8b5799de2cdbf5 test: break door key validation for case 17
+
+Comando de corrección:
+git revert 7e3af480a3811707189cb989ca8b5799de2cdbf5
+
+Commit inverso:
+6845a2efa996a5ab238555a05bbb9fb92cca31d2 Revert "test: break door key validation for case 17"
+
+Verificación: la condición final vuelve a impedir abrir la puerta cuando el jugador todavía no tiene la llave. El commit roto no fue eliminado del historial.
+

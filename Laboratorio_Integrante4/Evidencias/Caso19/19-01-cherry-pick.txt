@@ -1,0 +1,20 @@
+CASO 19 - CHERRY-PICK SELECTIVO
+
+Rama fuente: Caso19/Feature-Puzzle-Source
+
+18e42f4826578c99d76fc1f3532fcf506db91acc docs: add puzzle ui note
+50ead2b10d85a9aaac44847f3f427b866f23117d fix: correct puzzle validation
+9f5b72f6e3636aa79b7fb42cc9bae7b3c09224bc docs: add future puzzle hint note
+
+Comando aplicado desde Dev:
+git cherry-pick 50ead2b10d85a9aaac44847f3f427b866f23117d
+
+Resultado en Dev:
+36b57507fa875aff2424da338454ca8c10ed9c16 fix: correct puzzle validation
+
+Verificación en Dev:
+UI_NOTE_PRESENT=False
+HINT_NOTE_PRESENT=False
+
+Solo la corrección de PuzzleManager.cs fue incorporada.
+
