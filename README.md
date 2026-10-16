@@ -13,9 +13,9 @@ Proyecto colaborativo de laboratorio de Git + GitHub + Visual Studio Code + Unit
 
 ## Integrantes
 - Carolina Lohrmann — Movimiento del jugador.
-- SAUL — Interacción con objetos.
-- TEF — Puzzle y desbloqueo del cofre.
-- KEVIN IILLANES — Animaciones, llave y estado del juego.
+- Saúl Álvarez Alanes — Interacción con objetos.
+- Estefanía Laredo — Puzzle y desbloqueo del cofre.
+- Kevin Illanes — Animaciones, llave y estado del juego.
 
 ## Ramas
 - main
@@ -27,9 +27,3 @@ Proyecto colaborativo de laboratorio de Git + GitHub + Visual Studio Code + Unit
 
 ## Objetivo
 Explorar una habitación, resolver un código, abrir un cofre, obtener una llave y abrir la puerta de salida.
-
-## Equipo
-- Carolina Lohrmann
-- SAUL
-- TEF
-- KEVIN IILLANES

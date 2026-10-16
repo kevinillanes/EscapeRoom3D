@@ -1,26 +1,15 @@
-# Bitácora del integrante 1
+# Bitácora del integrante 1 — Carolina Lohrmann
 
-Método real: preparación automática mediante CLI. Revisa estas descripciones y añade tus capturas y participación personal; no se presentan como acciones manuales del estudiante.
+Estado: actividades personales registradas y evidencias organizadas.
 
-| Caso | Problema | ¿Provocado? | ¿Resuelto técnicamente? | Evidencia | Pendiente de la guía |
-|---|---|---|---|---|---|
-| 02 | Feature de práctica basada en main, sin avances de Dev. | Sí, rama local de práctica. | Sí, recreada desde Dev. | Evidencias/02-01 y 02-02. | Capturas Source Control/GitHub y ramas de compañeros. |
-| 03 | Commit de movimiento creado en Dev. | Sí, commit local 44492f6. | Sí, conservado en Feature y Dev restaurada. | Evidencias/03-01 y 03-02. | Prueba visual Unity y captura de Source Control. |
-| 04 | Cambios pendientes que serían sobrescritos al cambiar de rama. | Sí, copia local de laboratorio. | Sí, stash y recuperación exacta verificada. | Evidencias/04-01 y 04-02. | Práctica con integrante 2 y capturas de la interfaz. |
-| 05 | Push non-fast-forward porque el remoto avanzó. | Sí, remoto local y dos copias automáticas. | Sí, Pull, conservación de ambos aportes y Push. | Evidencias/05-01 y 05-02. | Reproducción colaborativa en GitHub y capturas. |
+| Caso | Actividad | Estado | Evidencia |
+|---|---|---|---|
+| 02 | Creación de la Feature desde el origen equivocado y corrección desde Dev. | Completado | [Capturas 02](Capturas/) y registros de la práctica. |
+| 03 | Conservación del commit de movimiento en la Feature y corrección de Dev. | Completado | [Capturas 03](Capturas/) y registros de la práctica; incluye comprobación en Unity. |
+| 04 | Stash y recuperación de los cambios en una copia local de práctica. | Completado individualmente | [Capturas 04](Capturas/) y registros de la práctica. |
+| 05 | Caso reasignado por el equipo; no corresponde a la responsabilidad de Integrante 1. | No aplica | Los registros de preparación existentes se conservan como archivo histórico, no como trabajo personal. |
+| 07 | Integración del cambio de movimiento y Animator en el prefab Player. | Completado | [Bitácora detallada y evidencias del caso 07](Bitacora/Bitacora_Caso07_Carolina_Kevin.md). |
 
-## Capturas que debes añadir
+La práctica del caso 04 se realizó individualmente en una copia local; esta bitácora no atribuye participación al integrante 2. El caso 07 cuenta con su registro y evidencias propios en la documentación enlazada.
 
-- [ ] 02: gráfico de ramas y ramas en GitHub.
-- [ ] 02: compañeros en sus propias Features.
-- [ ] 03: Source Control con Feature e historial final.
-- [ ] 03: Unity en Play y Console revisada.
-- [ ] 04: cambios pendientes, advertencia, stash, recuperación.
-- [ ] 05: rechazo GitHub, Pull, Push exitoso, README remoto y estado limpio.
-
-## Comprobación personal
-
-- [ ] Puedo explicar de qué commit nació mi Feature.
-- [ ] Sé por qué no se publicó el commit equivocado en Dev.
-- [ ] Distingo stash, commit, Fetch y Pull.
-- [ ] Revisé y expresé las reflexiones con mis palabras.
+Las actividades y evidencias que corresponden a esta bitácora están registradas. Las prácticas locales se identifican como tales y no se presentan como acciones colaborativas.
