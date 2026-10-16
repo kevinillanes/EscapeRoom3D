@@ -34,8 +34,6 @@ public class PlayerInteraction : MonoBehaviour
         IInteractable closest = null;
         float closestDistance = interactionDistance;
 
-        // La llave aparece encima del cofre. Si ambos estan al alcance,
-        // debe recogerse la llave en vez de volver a interactuar con el cofre.
         foreach (MonoBehaviour behaviour in behaviours)
         {
             if (!behaviour.isActiveAndEnabled || !(behaviour is KeyItem key))

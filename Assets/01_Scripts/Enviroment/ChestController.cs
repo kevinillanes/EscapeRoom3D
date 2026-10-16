@@ -110,8 +110,6 @@ public class ChestController : MonoBehaviour, IInteractable
         GameManager.Instance?.NotifyChestOpened();
         Debug.Log("Cofre abierto. La llave esta disponible.");
 
-        // El cofre ya termino su funcion. Al desactivar esta interaccion,
-        // la siguiente pulsacion de E cerca del cofre recoge la llave.
         enabled = false;
     }
 }
