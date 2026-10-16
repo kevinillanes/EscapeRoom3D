@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Initialize();
-        InitializeGameState();
     }
 
     private void Initialize()
