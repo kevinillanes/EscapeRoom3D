@@ -87,6 +87,89 @@ Antes de eso tuvimos un ida y vuelta porque el commit que ella había subido no 
 
 ---
 
-## Casos 05 al 20
+## Antes del merge — las tres carpetas .vscode
 
-Pendientes. El 05 y los del 06 al 10 necesitan a dos personas trabajando desde la misma base, así que dependen de coordinar con el resto del equipo.
+Antes de poder integrar nada me topé con algo que no está en ningún caso de la guía. Al intentar el merge desde VS Code me salía un cuadro que decía *"Git: Aborting"* y el merge no se hacía. Lo intenté dos veces y las dos veces igual, sin ningún mensaje que explicara nada.
+
+Al final lo corrí desde la terminal para ver el error completo:
+
+```
+error: The following untracked working tree files would be overwritten by merge:
+	.vscode/extensions.json
+	.vscode/launch.json
+	.vscode/settings.json
+Please move or remove them before you merge.
+Aborting
+```
+
+Lo que pasaba es que Estefanía había subido la carpeta `.vscode` en su rama, y yo tenía esos mismos tres archivos en mi disco pero sin commitear. Git no los iba a sobrescribir porque son míos y no los conoce, así que prefería cancelar el merge antes que borrarme algo. Le cambié el nombre a mi carpeta local (`.vscode_respaldo_local`) y el merge pasó sin problema.
+
+**Qué aprendí:** VS Code no siempre te muestra el motivo real. Cuando algo falla sin explicación, el mismo comando en la terminal te lo dice completo.
+
+---
+
+## Caso 06 — Conflicto en PlayerController.cs
+
+**¿Provocado?** Sí · **¿Resuelto?** Sí
+**Evidencias:** `caso06_conflicto.png`, `caso06_merge_editor.png`, `caso06_resultado.png`, `caso06_unity.png`
+
+Después de integrar la rama del puzzle (que entró limpia, sin conflictos, porque Git solo tuvo que adelantar el puntero), integré la rama del movimiento. Ahí sí salió el conflicto:
+
+```
+Auto-merging Assets/01_Scripts/Player/PlayerController.cs
+CONFLICT (add/add): Merge conflict in Assets/01_Scripts/Player/PlayerController.cs
+```
+
+Dice *add/add* y no *content* porque las dos ramas crearon el archivo por separado en vez de partir del mismo. Para Git son dos archivos distintos que casualmente se llaman igual, así que no tiene ninguna versión común con la que comparar y marca todo el archivo como conflicto.
+
+Lo abrí en el Merge Editor y leí los dos lados. **Current** era la versión que estaba en Dev y **Incoming** la de Feature_PlayerMovement. Comparándolas vi que la de Carolina tenía exactamente las mismas teclas WASD que la de Dev y además las flechas del teclado. O sea que una contenía a la otra. Construí el Result tomando su versión completa y revisé que no quedara nada afuera.
+
+**Criterio:** se conservó la versión de Feature_PlayerMovement porque incluye las mismas teclas WASD que la versión de Dev y además añade las flechas del teclado. No se perdió ninguna funcionalidad de ninguna de las dos ramas.
+
+Guardé, el archivo dejó de aparecer en Merge Changes y lo pasé a Staged.
+
+**Qué aprendí:** resolver texto es decidir qué letras quedan; resolver software es decidir qué comportamiento queda. Aquí los dos lados se veían parecidos, pero lo que había que mirar no era cuál tenía más líneas sino qué teclas dejaba de responder cada opción. Por eso se prueba en Unity después y no se confía en que el archivo compile.
+
+---
+
+## Caso 08 — Conflicto en la escena
+
+**¿Provocado?** Sí · **¿Resuelto?** Sí
+**Evidencias:** `caso08_conflicto.png`, `caso08_hierarchy.png`, `caso08_escena.png`, `caso08_playmode.png`
+
+En el mismo merge, junto con el script, entró en conflicto la escena:
+
+```
+Auto-merging Assets/00_Scenes/SampleScene.unity
+CONFLICT (content): Merge conflict in Assets/00_Scenes/SampleScene.unity
+```
+
+Este fue el más delicado de todos. La escena tenía 3767 líneas y Git marcó 14 zonas en conflicto. Un archivo `.unity` no es código, es una lista de objetos serializados con identificadores internos, y si se resuelve mal el proyecto abre igual pero la escena queda rota, y eso no se nota hasta darle Play.
+
+Antes de tocar nada saqué las tres versiones por separado (la base común, la de Dev y la de Feature_PlayerMovement) y las comparé objeto por objeto en vez de línea por línea. Eso cambió todo:
+
+| | Dev | Feature_PlayerMovement |
+|---|---|---|
+| Objetos en la escena | 27 | 5 |
+| Componentes en el Player | Transform, PlayerController, **PlayerInteraction**, Collider, Rigidbody | Transform, PlayerController, Collider, Rigidbody |
+| Rigidbody del Player | `m_UseGravity: 0` | `m_UseGravity: 1` |
+
+Lo primero que revisé fue si los objetos que estaban en las dos ramas tenían el mismo `fileID`, porque si no coinciden quedan duplicados al juntarlos. Coincidían: el Player es el `437900929` y el piso el `2031225365` en las dos. O sea que eran el mismo objeto y no dos copias.
+
+Lo segundo fue que la rama del movimiento no agregaba ningún objeto nuevo que Dev no tuviera ya. De los 14 conflictos, 12 eran espacios en blanco al final de líneas `m_Name:`, diferencia de cómo guarda el archivo cada editor, nada funcional.
+
+**Criterio:** se conservó la versión de Dev, que contenía todos los objetos del cofre, el PuzzleManager, el canvas y las pistas, además de mi componente PlayerInteraction en el Player. De la rama Feature_PlayerMovement se tomó el único cambio funcional que aportaba: `m_UseGravity: 1` en el Rigidbody del Player, que es lo que hace que el jugador se apoye en el piso en vez de flotar. Antes de completar el merge verifiqué que la lista `SceneRoots` tuviera los 15 objetos raíz y que cada objeto apareciera una sola vez.
+
+Después abrí la escena en Unity, revisé el Hierarchy objeto por objeto y probé el Play.
+
+**Por qué conviene no editar la misma escena a la vez:** porque una escena no se puede partir en pedazos. Dos personas pueden editar dos scripts distintos y Git los junta solo; en una escena cualquier cosa que toque cada una queda escrita en el mismo archivo, revuelta con todo lo demás, y Git no tiene forma de saber que un bloque de texto es un cofre y otro es una puerta.
+
+**Cómo lo organizaría:** que una sola persona sea dueña de la escena por turnos, y que lo demás se haga en Prefabs. Cada uno arma su parte en su propio Prefab, lo sube, y el dueño de la escena lo arrastra adentro. Así el archivo de la escena lo toca uno solo y los conflictos se mueven a archivos que sí se pueden separar.
+
+---
+
+## Casos pendientes
+
+- **Caso 05** (push rechazado) y **Casos 07, 09 y 10** los voy a hacer con Kevin, porque necesitan a dos personas trabajando desde la misma base.
+- **Caso 10:** no se puede hacer con `PuzzleManager.cs` como dice el enunciado, porque ese archivo ya existe en el proyecto desde la rama del puzzle. Lo vamos a hacer con `GameManager.cs`, que nadie ha creado todavía, para que el Add/Add sea real.
+- **Caso 18** (recuperación de trabajo perdido): la carpeta `Laboratorio_Integrante1` desapareció de todas las ramas después de un push forzado. El commit todavía existe como objeto en el repositorio, así que se puede recuperar. Eso es exactamente lo que pide el caso 18.
