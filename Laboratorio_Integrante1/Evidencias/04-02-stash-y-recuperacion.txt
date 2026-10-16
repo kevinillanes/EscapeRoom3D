@@ -1,0 +1,60 @@
+04-02-stash-y-recuperacion
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git stash push -m WIP interaction
+Saved working directory and index state On Feature_Interaction: WIP interaction
+Salida: 0
+
+$ git status --porcelain
+(sin salida)
+Salida: 0
+
+$ git stash list
+stash@{0}: On Feature_Interaction: WIP interaction
+Salida: 0
+
+$ git switch Practica/StashDestino
+Switched to branch 'Practica/StashDestino'
+Salida: 0
+
+$ git switch Feature_Interaction
+Switched to branch 'Feature_Interaction'
+Salida: 0
+
+$ git stash apply stash@{0}
+On branch Feature_Interaction
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Assets/01_Scripts/Interaction/PlayerInteraction.cs
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Salida: 0
+
+$ git diff -- Assets/01_Scripts/Interaction/PlayerInteraction.cs
+diff --git a/Assets/01_Scripts/Interaction/PlayerInteraction.cs b/Assets/01_Scripts/Interaction/PlayerInteraction.cs
+index 30e4d5c..74bd505 100644
+--- a/Assets/01_Scripts/Interaction/PlayerInteraction.cs
++++ b/Assets/01_Scripts/Interaction/PlayerInteraction.cs
+@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
+     {
+         if (playerCamera == null)
+         {
+-            Debug.LogWarning("Player camera is not assigned.");
++            Debug.LogWarning("CASO04 trabajo pendiente sin commit.");
+             return;
+         }
+Salida: 0
+
+Verificacion: contenido recuperado identico al guardado antes del stash.
+$ git restore -- Assets/01_Scripts/Interaction/PlayerInteraction.cs
+(sin salida)
+Salida: 0
+
+$ git status --porcelain
+(sin salida)
+Salida: 0
+
+La copia de laboratorio queda limpia; WIP interaction se conserva para repetir Apply Stash y capturar.

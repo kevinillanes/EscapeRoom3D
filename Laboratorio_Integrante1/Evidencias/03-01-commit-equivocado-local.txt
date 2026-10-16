@@ -1,0 +1,51 @@
+03-01-commit-equivocado-local
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git switch Dev
+Your branch is up to date with 'origin/Dev'.
+Switched to branch 'Dev'
+Salida: 0
+
+$ git diff -- Assets/01_Scripts/Player/PlayerController.cs
+diff --git a/Assets/01_Scripts/Player/PlayerController.cs b/Assets/01_Scripts/Player/PlayerController.cs
+index 79c97fc..207be3e 100644
+--- a/Assets/01_Scripts/Player/PlayerController.cs
++++ b/Assets/01_Scripts/Player/PlayerController.cs
+@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
+
+         if (Keyboard.current != null)
+         {
+-            if (Keyboard.current.wKey.isPressed) input.y += 1;
+-            if (Keyboard.current.sKey.isPressed) input.y -= 1;
+-            if (Keyboard.current.aKey.isPressed) input.x -= 1;
+-            if (Keyboard.current.dKey.isPressed) input.x += 1;
++            if ((Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed)) input.y += 1;
++            if ((Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)) input.y -= 1;
++            if ((Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)) input.x -= 1;
++            if ((Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)) input.x += 1;
+         }
+
+         Vector3 movement = new Vector3(input.x, 0f, input.y);
+Salida: 0
+
+$ git add -- Assets/01_Scripts/Player/PlayerController.cs
+(sin salida)
+Salida: 0
+
+$ git commit -m feat: add player movement
+[Dev 44492f6] feat: add player movement
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+Salida: 0
+
+$ git rev-parse HEAD
+44492f6e60af49d4f829a7b98f31d64bf273d4cd
+Salida: 0
+
+$ git log -2 --oneline --decorate Dev
+44492f6 (HEAD -> Dev) feat: add player movement
+6ccd160 (origin/Feature_Interaction, origin/Dev, Practica/Caso02-Origen) feat: agrega objeto de prueba para validar la interacción
+Salida: 0
+
+No se hizo Push de Dev. Adaptacion: el movimiento ya existia; se agrego soporte de flechas.

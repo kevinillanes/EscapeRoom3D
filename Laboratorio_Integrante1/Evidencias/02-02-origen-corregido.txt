@@ -1,0 +1,39 @@
+02-02-origen-corregido
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git switch Dev
+Your branch is up to date with 'origin/Dev'.
+Switched to branch 'Dev'
+Salida: 0
+
+$ git branch -D Practica/Caso02-Origen
+Deleted branch Practica/Caso02-Origen (was ba6e8a7).
+Salida: 0
+
+$ git branch Practica/Caso02-Origen Dev
+(sin salida)
+Salida: 0
+
+$ git rev-parse Practica/Caso02-Origen
+6ccd160ee69a80ea70da65c57852380b790929b0
+Salida: 0
+
+$ git log --graph --oneline --decorate --max-count=12 Dev Practica/Caso02-Origen
+* 6ccd160 (HEAD -> Dev, origin/Feature_Interaction, origin/Dev, Practica/Caso02-Origen) feat: agrega objeto de prueba para validar la interacción
+* d94cf7d chore: habilita Both en Active Input Handling
+* 26fbe94 feat: agrega PlayerInteraction al Player en la escena
+* 69fd015 feat: completa la interacción con raycast
+* 8139e34 feat: agrega interacción del jugador
+* ff34039 (Respaldo/ArchivosLocales-AntesPreparacion) Save latest Unity asset changes locally
+* 71e01d8 Save latest Unity project changes locally
+* dbe833d Add Unity project files
+* c8a1e9b (origin/Feature_Animation) Initial commit
+Salida: 0
+
+$ git switch Feature_PlayerMovement
+Your branch is ahead of 'origin/Feature_PlayerMovement' by 9 commits.
+  (use "git push" to publish your local commits)
+Switched to branch 'Feature_PlayerMovement'
+Salida: 0

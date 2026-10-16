@@ -1,0 +1,56 @@
+03-02-commit-conservado-y-Dev-corregida
+Metodo: comandos Git reales ejecutados automaticamente.
+No es una captura de VS Code ni una prueba visual de Unity.
+Repositorio de trabajo: C:/Users/kevin/Downloads/EscapeRoom3D-Dev/EscapeRoom3D-Dev
+
+$ git switch Feature_PlayerMovement
+Your branch is ahead of 'origin/Feature_PlayerMovement' by 9 commits.
+  (use "git push" to publish your local commits)
+Switched to branch 'Feature_PlayerMovement'
+Salida: 0
+
+$ git merge --no-ff Dev -m chore: conserva movimiento en Feature_PlayerMovement
+Merge made by the 'ort' strategy.
+ Assets/01_Scripts/Player/PlayerController.cs | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+Salida: 0
+
+$ git branch Practica/Caso03-CommitEquivocado 44492f6e60af49d4f829a7b98f31d64bf273d4cd
+(sin salida)
+Salida: 0
+
+$ git update-ref refs/heads/Dev 6ccd160ee69a80ea70da65c57852380b790929b0 44492f6e60af49d4f829a7b98f31d64bf273d4cd
+(sin salida)
+Salida: 0
+
+$ git merge-base --is-ancestor 44492f6e60af49d4f829a7b98f31d64bf273d4cd Feature_PlayerMovement
+(sin salida)
+Salida: 0
+
+$ git rev-parse Dev
+6ccd160ee69a80ea70da65c57852380b790929b0
+Salida: 0
+
+$ git log --graph --oneline --decorate --max-count=14 Dev Feature_PlayerMovement
+*   ad2a19f (HEAD -> Feature_PlayerMovement) chore: conserva movimiento en Feature_PlayerMovement
+|\
+| * 44492f6 (Practica/Caso03-CommitEquivocado) feat: add player movement
+* | 4fe8afb chore: integra Dev en Feature_PlayerMovement
+|\|
+| * 6ccd160 (origin/Feature_Interaction, origin/Dev, Practica/Caso02-Origen, Dev) feat: agrega objeto de prueba para validar la interacción
+| * d94cf7d chore: habilita Both en Active Input Handling
+| * 26fbe94 feat: agrega PlayerInteraction al Player en la escena
+| * 69fd015 feat: completa la interacción con raycast
+| * 8139e34 feat: agrega interacción del jugador
+| * ff34039 (Respaldo/ArchivosLocales-AntesPreparacion) Save latest Unity asset changes locally
+| * 71e01d8 Save latest Unity project changes locally
+| * dbe833d Add Unity project files
+* | dbfe2ed (origin/Feature_PlayerMovement, Respaldo/PlayerMovement-AntesPreparacion) Document project overview in README
+* | 57a1ecd Add PlayerController to player movement feature
+|/
+* c8a1e9b (origin/Feature_Animation) Initial commit
+Salida: 0
+
+$ git status --porcelain
+(sin salida)
+Salida: 0
