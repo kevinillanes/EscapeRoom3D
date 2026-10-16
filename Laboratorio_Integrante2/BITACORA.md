@@ -168,8 +168,60 @@ Después abrí la escena en Unity, revisé el Hierarchy objeto por objeto y prob
 
 ---
 
+## Caso 05 — Push rechazado
+
+**¿Provocado?** Sí · **¿Resuelto?** Sí
+**Evidencias:** `caso05_rechazo.png`, `caso05_pull.png`, `caso05_push_ok.png`, `caso05_github.png`, `caso05_readme_final.png`
+
+Este caso lo hicimos con Kevin. Los dos partimos de la misma versión de Dev y acordamos que yo publicaba primero y él no hacía Pull.
+
+Escribí un párrafo al inicio del README describiendo el juego, commit `docs: update project information`, y Push. Recién entonces él escribió su sección al final con la información del equipo, hizo commit `docs: add team information` y Push. Le rebotó:
+
+```
+! [rejected]        Dev -> Dev (non-fast-forward)
+error: failed to push some refs
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart.
+```
+
+Lo resolvió con un Pull y después un Push, que ya pasó. Como yo había tocado el principio del archivo y él el final, Git los unió solo, sin conflicto. El README quedó con los dos textos.
+
+**Un detalle que no esperaba:** su Pull no generó commit de merge. Su commit quedó reapoyado encima del mío y el historial salió en línea recta, porque su Git está configurado para hacer rebase al hacer Pull. El mío hace merge. Los dos resuelven lo mismo pero dejan historiales distintos, y eso no lo sabía.
+
+**Diferencia entre Fetch y Pull:** Fetch solo trae los commits del remoto y los deja aparte, sin tocar tu rama; puedes mirarlos antes de decidir. Pull hace el Fetch y además los integra de una.
+
+**Por qué Git rechaza el Push:** aceptarlo borraría del historial remoto los commits que el otro ya había subido. Nadie se enteraría de que desaparecieron hasta que esa persona notara que su trabajo no está. Por eso el remoto solo acepta avanzar, no reescribirse.
+
+---
+
+## Caso 09 — Archivo eliminado contra archivo modificado
+
+**¿Provocado?** Sí · **¿Resuelto?** Sí
+**Evidencias:** `caso09_conflicto.png`, `caso09_decision.png`, `caso09_referencias.png`, `caso09_unity.png`
+
+Creé `OldDoorController.cs` en Dev como base común y los dos lo bajamos. Desde esa misma base yo lo eliminé en mi rama (`refactor: remove old door controller`) y Kevin lo modificó en la suya, agregándole un `isOpen` para que la puerta no se abriera dos veces (`fix: update old door controller`). Después integré las dos en Dev:
+
+```
+CONFLICT (modify/delete): Assets/01_Scripts/Enviroment/OldDoorController.cs
+deleted in HEAD and modified in origin/Feature_Animation.
+Version origin/Feature_Animation of ... left in tree.
+```
+
+Este conflicto se ve distinto a los otros. No se abre el Merge Editor, porque no hay dos textos que combinar: hay un archivo que de un lado existe y del otro no. VS Code ofrece Keep o Delete, nada más.
+
+Me llamó la atención que Git dejara el archivo de Kevin en mi disco en vez de borrarlo. Lo hace a propósito, para que puedas abrirlo y leer qué había dentro antes de decidir. Git te da los datos y se calla.
+
+**Decisión: se conserva la eliminación.** Antes de decidir busqué `OldDoorController` en todo el proyecto con la búsqueda global de VS Code y salió **1 resultado en 1 archivo**, y ese único resultado era la propia declaración de la clase. Ningún script lo instancia, ningún objeto de la escena lo tiene asignado y la puerta de salida todavía no existe como objeto en el juego. El cambio de Kevin es correcto en sí mismo, pero mejora un archivo que no forma parte del diseño actual del Escape Room. Conservarlo solo para no descartar su trabajo dejaría un script muerto en el proyecto, y el día que alguien hiciera la puerta de verdad se encontraría con código viejo que ya no corresponde. Lo hablé con él antes de completar el merge.
+
+**¿Git puede decidir arquitectura?** No. Git sabe que un lado borró y el otro modificó, pero no sabe para qué sirve el archivo ni si el juego lo necesita. Esa decisión depende de conocer el diseño, y por eso la tiene que tomar una persona.
+
+**¿Qué riesgo hay en conservar un archivo solo para evitar el conflicto?** Que el proyecto se llena de código que nadie usa pero que tampoco nadie se anima a borrar, porque ya no se sabe si algo depende de él. Es más caro limpiarlo después que decidirlo en el momento.
+
+---
+
 ## Casos pendientes
 
-- **Caso 05** (push rechazado) y **Casos 07, 09 y 10** los voy a hacer con Kevin, porque necesitan a dos personas trabajando desde la misma base.
-- **Caso 10:** no se puede hacer con `PuzzleManager.cs` como dice el enunciado, porque ese archivo ya existe en el proyecto desde la rama del puzzle. Lo vamos a hacer con `GameManager.cs`, que nadie ha creado todavía, para que el Add/Add sea real.
-- **Caso 18** (recuperación de trabajo perdido): la carpeta `Laboratorio_Integrante1` desapareció de todas las ramas después de un push forzado. El commit todavía existe como objeto en el repositorio, así que se puede recuperar. Eso es exactamente lo que pide el caso 18.
+- **Caso 07** (conflicto en Prefab) y **Caso 10** (Add/Add) los hago con Kevin esta misma noche.
+- **Caso 10:** no se puede hacer con `PuzzleManager.cs` como dice el enunciado, porque ese archivo ya existe en el proyecto desde la rama del puzzle y Git tendría una versión común con la que comparar, así que el conflicto saldría como *content* y no como Add/Add. Lo hacemos con `GameManager.cs`, que no existe todavía.
+- **Caso 18** (recuperación de trabajo perdido): la carpeta `Laboratorio_Integrante1` desapareció de todas las ramas después de un push forzado. El commit sigue existiendo como objeto en el repositorio, así que se puede recuperar.
+- **Limpieza antes de entregar:** borrar `TestInteractable.cs`, el `Cubo_Prueba_Interaccion` de la escena, el `archivo_de_prueba.txt`, y unir las secciones `Integrantes` y `Equipo` del README, que quedaron duplicadas.
