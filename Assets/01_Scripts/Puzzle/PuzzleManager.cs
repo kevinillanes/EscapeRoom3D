@@ -5,10 +5,15 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private string correctCode = "1234";
     [SerializeField] private ChestController chest;
 
-    //prueba
+    public void Configure(ChestController targetChest, string code = "1234")
+    {
+        chest = targetChest;
+        correctCode = code;
+    }
+
     public bool ValidateCode(string code)
     {
-        bool valid = (code == correctCode);
+        bool valid = code == correctCode;
 
         if (valid)
         {
@@ -22,6 +27,7 @@ public class PuzzleManager : MonoBehaviour
         {
             Debug.Log("Código incorrecto.");
         }
+
         return valid;
     }
 }
